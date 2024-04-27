@@ -143,6 +143,7 @@ describe("Base Api", () => {
             const invalidRequestType = "invalidType"
             await expect(async () => {
                 await baseApiInstance.get(requestUrl, {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     options: { requestType: invalidRequestType as any },
                 })
             }).rejects.toThrow(`Request type unknown: ${invalidRequestType}`)
@@ -157,6 +158,7 @@ describe("Base Api", () => {
                     headers: { "Content-Type": "application/json" },
                 },
             )
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             let resolveRequests: any
             const emulateConcurrencyPromise = new Promise<Response>(
                 (resolve) => {
