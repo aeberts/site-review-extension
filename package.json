@@ -9,7 +9,8 @@
         "dev": "vite",
         "preview": "vite preview",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "test": "vitest"
+        "test": "vitest",
+        "e2e": "playwright test --headed"
     },
     "husky": {
         "hooks": {
@@ -28,6 +29,7 @@
     },
     "devDependencies": {
         "@crxjs/vite-plugin": "2.0.0-beta.23",
+        "@playwright/test": "1.42.1",
         "@testing-library/jest-dom": "6.4.2",
         "@testing-library/react": "14.2.1",
         "@types/chrome": "0.0.262",
@@ -47,6 +49,7 @@
         "husky": "9.0.11",
         "jsdom": "^24.0.0",
         "lint-staged": "15.2.2",
+        "playwright": "1.42.1",
         "prettier": "3.2.5",
         "rollup-plugin-css-only": "4.5.2",
         "typescript": "^5.2.2",
