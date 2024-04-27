@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config"
+import { defineConfig } from "vite"
 import { resolve } from "path"
 import react from "@vitejs/plugin-react"
 import { crx } from "@crxjs/vite-plugin"
@@ -10,19 +10,13 @@ const assetsDir = resolve(root, "assets")
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), crx({ manifest }), css({ output: "bundle.css" })],
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    plugins: [react(), crx({ manifest }), css({ output: "bundle.css" }) as any],
     resolve: {
         alias: {
             "@src": root,
             "@assets": assetsDir,
         },
-    },
-    test: {
-        // some paths to the files that are test files
-        include: ["./**/*.test.ts", "./**/*.test.tsx"],
-        globals: true,
-        environment: "jsdom",
-        setupFiles: ["./setupTests.ts"],
     },
     optimizeDeps: {
         esbuildOptions: {
