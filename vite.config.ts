@@ -20,7 +20,7 @@ export default defineConfig({
     },
     optimizeDeps: {
         esbuildOptions: {
-            sourcemap: "inline",
+            sourcemap: true,
         },
     },
 })

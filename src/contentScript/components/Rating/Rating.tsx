@@ -1,14 +1,17 @@
 import "./Rating.css"
 import { useState } from "react"
 
-export function Rating() {
-    const [rating, setRating] = useState(null)
-    const [hover, setHover] = useState(null)
-    const [totalStars, setTotalStars] = useState(5)
+const totalRating = Array.from({ length: 5 }, (_, index) => index + 1)
 
+export function Rating() {
+    const [rating, setRating] = useState<number>(0)
+    const [hover, setHover] = useState<number>(0)
+
+    console.log("Rating", totalRating)
     return (
         <div className="rating">
-            {[...Array(totalStars)].map((star, index) => {
+            {totalRating.map((star, index) => {
+                console.log(star, index)
                 const currentRating = index + 1
 
                 return (
@@ -29,7 +32,7 @@ export function Rating() {
                                         : "#e4e5e9",
                             }}
                             onMouseEnter={() => setHover(currentRating)}
-                            onMouseLeave={() => setHover(null)}
+                            onMouseLeave={() => setHover(0)}
                         >
                             &#9733;
                         </span>
