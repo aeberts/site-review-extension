@@ -1,4 +1,4 @@
-import { MessageRate } from "@types/messageTypes"
+import { MessageRate } from "../../../types/message.types"
 
 async function updateCacheRating(
     sendResponse: SendResponseCallback,
@@ -28,7 +28,7 @@ async function getRateFromCache(
             throw new Error("URL must exist to provide rate information")
         }
     } catch (error) {
-        console.log("Failed to retrieved counter from cache", error)
+        console.log("Failed to retrieved rating from cache", error)
         return sendResponse({ statusCode: 500 })
     }
 }

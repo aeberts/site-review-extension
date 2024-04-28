@@ -1,4 +1,3 @@
-import logo from "@assets/logo.svg"
 import "./App.css"
 import { Rating } from "./components/Rating/Rating"
 
@@ -12,7 +11,7 @@ function App() {
                     rel="noreferrer"
                 >
                     <img
-                        src={chrome.runtime.getURL(logo)}
+                        src={chrome.runtime.getURL("logo.svg")}
                         className="logo"
                         alt="Site Review Demo logo"
                     />

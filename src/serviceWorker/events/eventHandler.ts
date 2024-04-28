@@ -1,3 +1,4 @@
+import { MessageRate } from "../../types/message.types"
 import { ratingMessageHandler } from "./onMessageHandlers/ratingMessageHandler"
 
 export function messageHandler(
@@ -8,7 +9,11 @@ export function messageHandler(
     if (sender.tab && message.type) {
         switch (message.type) {
             case "rating":
-                ratingMessageHandler(message, sendResponse)
+                ratingMessageHandler(
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    message as any as Message<MessageRate>,
+                    sendResponse,
+                )
                 break
             default:
                 return false

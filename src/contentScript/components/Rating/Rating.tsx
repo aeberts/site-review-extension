@@ -1,4 +1,4 @@
-import { MessageRate } from "@types/messageTypes"
+import { MessageRate } from "../../../types/message.types"
 import { sendMessage } from "../../messages/sendMessage"
 import { clearUrlParams } from "../..//utils/url"
 import "./Rating.css"

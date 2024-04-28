@@ -6,18 +6,20 @@ import css from "rollup-plugin-css-only"
 import manifest from "./public/manifest.json"
 
 const root = resolve(__dirname, "src")
-const assetsDir = resolve(root, "assets")
-const typesDir = resolve(root, "types")
+const assetsDir = resolve(__dirname, "public")
 
 // https://vitejs.dev/config/
 export default defineConfig({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    plugins: [react(), crx({ manifest }), css({ output: "bundle.css" }) as any],
+    plugins: [
+        react(),
+        css({ output: "bundle.css" }) as any,
+        crx({ manifest, contentScripts: { injectCss: true } }),
+    ],
     resolve: {
         alias: {
             "@src": root,
             "@assets": assetsDir,
-            "@types": typesDir,
         },
     },
     optimizeDeps: {

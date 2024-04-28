@@ -4,7 +4,7 @@ import { sendMessage } from "./sendMessage"
 
 describe("sendMessage", () => {
     it("should send the message correctly", async () => {
-        const message: Message = { type: "counter", subType: "get" }
+        const message: Message = { type: "rating", subType: "get" }
         const response: MessageResponse = { statusCode: 200, data: 2 }
 
         const jestChrome = chrome as any as JestChrome
