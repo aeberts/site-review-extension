@@ -10,7 +10,7 @@ describe("createShadowRoot", () => {
 
         const shadowEl = createShadowRoot(root, cssURL)
 
-        expect(shadowEl.shadowRoot).not.toBeNull()
+        expect(root.shadowRoot).not.toBeNull()
         const appRootInShadow = shadowEl.shadowRoot?.querySelector("#app-root")
         expect(appRootInShadow).not.toBeNull()
         const styleSheet = shadowEl.shadowRoot?.querySelector(
