@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom"
 import "isomorphic-fetch"
 // import { chrome } from "jest-chrome/lib/index.cjs"
 // import { chrome } from "jest-chrome"

@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react"
 import { JestChrome } from "jest-chrome/types/jest-chrome"
 import { Rating } from "./Rating"
-describe("<Rating />", () => {
+
+describe("<Rating /> integration with sendMessage", () => {
     let mockSendMessage: jest.Mock
     beforeEach(() => {
         mockSendMessage = jest.fn()

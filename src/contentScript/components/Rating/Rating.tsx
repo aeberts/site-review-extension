@@ -43,7 +43,7 @@ export function Rating() {
     }, [])
 
     return (
-        <div className="rating">
+        <div className="rating" data-testid="rating-component">
             {totalRating.map((star, index) => {
                 const currentRating = index + 1
 
@@ -59,6 +59,7 @@ export function Rating() {
                         />
                         <span
                             className="star"
+                            data-testid="star"
                             style={{
                                 color:
                                     currentRating <= (hover || rating)
