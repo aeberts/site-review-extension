@@ -1,37 +1,40 @@
-# React + TypeScript + Vite + Chrome extension + CXRJS plugin boilerplate
+# Chrome Extension: Site Reviewer
 
-This repository aims to provide a quick starting point for building Chrome extensions in React. Please note that this is a pre-alpha project, so exercise caution before forking it, as it is not yet ready for general use. If you find something useful, feel free to copy and reproduce it at your own discretion, but be aware that it will be at your own risk.
+### Overview:
 
-Now that the disclosure is complete, this project aims to offer an easy way to create complex extensions with a simple fork, incorporating the following features:
+The Site Reviewer Chrome Extension is a demonstration project designed to showcase testing strategies for Chrome extensions. It offers users the ability to rate and review websites directly within their Chrome browser. This extension aims to demonstrate best practices for testing Chrome extensions and highlights the importance of thorough testing in software development.
 
-- [x] Basic Message handling
-- [ ] Basic Error handling
-- [x] Advance API service, including the following features
-  - [x] Concurrency handler with Error handler
-  - [ ] Support for authentication through headers
-  - [x] Wrapper around fetch method to simplify usage GET, PUT, POST and DELETE
-  - [x] Support for streaming requests (Caveat we wait for the whole stream to finish fetching)
-- [ ] Support for Single Sign-On through cookies
-- [x] CSS injection into React Shadow
-- [x] Support testing using Vitest
-- [ ] Add acceptance tests using puppeteer (Puppeteer over playwright for more API control)
-- [x] Setup GitHub actions for CI
-- [ ] Setup Static Analysing (Perhaps Prettier + Husky + ESLint)
-- and much more
+### Features:
 
-## Additional Notes
+1. **Rating System:** Users can rate websites based on their experience, providing valuable insights to other users.
+2. **Review Submission:** Write and submit reviews for websites, sharing personal experiences and opinions.
+3. **Chrome Storage:** Reviews are stored locally in Chrome storage cache, ensuring data privacy and security.
+4. **Integration:** Seamlessly integrates with the Chrome browser, appearing as an unobtrusive extension icon.
+5. **Testing Strategies:** Demonstrates various testing strategies for Chrome extensions, including unit tests, integration tests, and end-to-end tests.
 
-- [x] Setup Vite
-- [x] Setup deployment and HMR in extension - using CXRJS
-- [x] Load React in Content Script considering there is not index.html
-- [x] Introduce Shadow dom and styles for the component
-- [x] Global styles to use within every page (Not required)
+### Get Started:
 
-## Tech debt to address
+1. **Clone Repository:** Clone the Site Reviewer repository from GitHub.
+2. **Install Dependencies:** Run `yarn install` to install the required dependencies.
+3. **Build Extension:** Run `yarn build` to build the extension.
+4. **Test Extension:** Run `yarn test` to execute tests and ensure the extension functions correctly.
+5. **Load Unpacked:** Open Chrome browser and go to `chrome://extensions/`.
+6. **Enable Developer Mode:** Toggle the Developer mode switch on the top right corner.
+7. **Load Extension:** Click on "Load unpacked" and select the `build` directory of the extension.
+8. **Ready to Use:** Once installed, the extension is ready to use, and the icon will appear in the browser toolbar.
 
-- [x] concurrentQueue.ts is a series of functions that handle the queue but needs an elegant and reusable interface. Revisit this file and create a cleaner implementation using Classes or Prototyping TBD.
-- [x] Base.api.ts is a bit big and serve multiple purposes, revisit the file and consider extract functionality like `mapParamsToApiNames` and `concurrent `concurrentRequests` so it can be better unit test it.
-- [x] concurrentQueue.ts is a series of functions that handle the queue but needs an elegant and reusable interface. Revisit this file and create a cleaner implementation using Classes or Prototyping TBD.
-- [x] Base.api.ts is a bit big and serves multiple purposes
-  - [x] Revisit the file and consider extracting functionality like `mapParamsToApiNames` and `concurrent `concurrentRequests` so it can be better unit tested.
-  - [x] Clear parameters part, it's not elegant to have to pass `{}` when we don't require additional query parameters and headers
+### Usage:
+
+1. **Rating:** When visiting a website, click on the extension icon to rate and review the site.
+2. **Submission:** Submit your rating and review to contribute to the community feedback.
+3. **Chrome Storage:** Reviews are stored locally in Chrome storage cache, ensuring data privacy and security.
+
+### Testing Strategies:
+
+1. **Unit Tests:** Tests individual components and functions in isolation to ensure they work as expected.
+2. **Integration Tests:** Tests how different components interact with each other within the extension.
+3. **End-to-End Tests:** Tests the extension's functionality from the user's perspective, simulating real-world scenarios.
+
+### License:
+
+The Site Reviewer extension is licensed under the [MIT License](https://opensource.org/licenses/MIT). You are free to modify and distribute the extension according to the terms of the license.
