@@ -1,4 +1,4 @@
-type MessageType = "counter"
+type MessageType = "rating"
 
 type MessageSubtype = "update" | "get"
 

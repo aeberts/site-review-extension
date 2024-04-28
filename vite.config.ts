@@ -7,6 +7,7 @@ import manifest from "./public/manifest.json"
 
 const root = resolve(__dirname, "src")
 const assetsDir = resolve(root, "assets")
+const typesDir = resolve(root, "types")
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,6 +17,7 @@ export default defineConfig({
         alias: {
             "@src": root,
             "@assets": assetsDir,
+            "@types": typesDir,
         },
     },
     optimizeDeps: {

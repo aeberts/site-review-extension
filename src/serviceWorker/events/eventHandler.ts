@@ -1,4 +1,4 @@
-import { counterMessageHandler } from "./onMessageHandlers/counterMessageHandler"
+import { ratingMessageHandler } from "./onMessageHandlers/ratingMessageHandler"
 
 export function messageHandler(
     message: Message,
@@ -7,8 +7,8 @@ export function messageHandler(
 ) {
     if (sender.tab && message.type) {
         switch (message.type) {
-            case "counter":
-                counterMessageHandler(message, sendResponse)
+            case "rating":
+                ratingMessageHandler(message, sendResponse)
                 break
             default:
                 return false
