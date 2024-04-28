@@ -6,6 +6,7 @@ describe("<Rating /> integration with sendMessage", () => {
     let mockSendMessage: jest.Mock
     beforeEach(() => {
         mockSendMessage = jest.fn()
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const jestChrome = chrome as any as JestChrome
         jestChrome.runtime.sendMessage.mockImplementation(mockSendMessage)
     })

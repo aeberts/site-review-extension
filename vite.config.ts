@@ -10,9 +10,9 @@ const assetsDir = resolve(__dirname, "public")
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     plugins: [
         react(),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         css({ output: "bundle.css" }) as any,
         crx({ manifest, contentScripts: { injectCss: true } }),
     ],

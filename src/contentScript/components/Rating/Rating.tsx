@@ -29,18 +29,21 @@ export function Rating() {
         loadRating(cleanUrl)
     }, [cleanUrl])
 
-    const updateRating = useCallback(async (newRating: number) => {
-        try {
-            await sendMessage<MessageRate, void>({
-                type: "rating",
-                subType: "update",
-                data: { url: cleanUrl, rate: newRating },
-            })
-            setRating(newRating)
-        } catch (error) {
-            console.error(error)
-        }
-    }, [])
+    const updateRating = useCallback(
+        async (newRating: number) => {
+            try {
+                await sendMessage<MessageRate, void>({
+                    type: "rating",
+                    subType: "update",
+                    data: { url: cleanUrl, rate: newRating },
+                })
+                setRating(newRating)
+            } catch (error) {
+                console.error(error)
+            }
+        },
+        [cleanUrl],
+    )
 
     return (
         <div className="rating" data-testid="rating-component">

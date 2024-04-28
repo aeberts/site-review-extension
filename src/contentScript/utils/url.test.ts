@@ -14,6 +14,7 @@ describe("clearUrlParams", () => {
     })
 
     it("should return the original URL if the input is not a string", () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const invalidUrl: any = null
         expect(clearUrlParams(invalidUrl)).toBe(invalidUrl)
     })
