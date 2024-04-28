@@ -53,6 +53,7 @@ export function Rating() {
                             key={star}
                             type="radio"
                             name="rating"
+                            data-testid={`input-${index}`}
                             value={currentRating}
                             onChange={() => updateRating(currentRating)}
                         />

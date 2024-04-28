@@ -14,6 +14,9 @@ const config: JestConfigWithTsJest = {
         "^.+\\.tsx?$": "ts-jest",
         // process `*.tsx` files with `ts-jest`
     },
+    moduleNameMapper: {
+        "\\.css$": "jest-css-modules",
+    },
 }
 
 export default config
