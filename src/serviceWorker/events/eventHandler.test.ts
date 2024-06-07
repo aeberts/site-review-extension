@@ -29,7 +29,7 @@ describe("messageHandler", () => {
         expect(result).toBe(true)
     })
 
-    it("should return false for unsupported message type", () => {
+    it("Should respond synchronously and immediately to the content script when an incorrect message type is detected", () => {
         const message = {
             type: "unsupported",
             data: {},
@@ -46,7 +46,7 @@ describe("messageHandler", () => {
         expect(result).toBe(false)
     })
 
-    it("should return false if sender.tab is not present", () => {
+    it("Should respond synchronously if sender.tab is absent, immediately returning a response to the content script", () => {
         const message: Message<MessageRate> = {
             type: "rating",
             subType: "update",
@@ -60,7 +60,7 @@ describe("messageHandler", () => {
         expect(result).toBe(false)
     })
 
-    it("should return false if message.type is not present", () => {
+    it("Should respond synchronously if message.type is missing, immediately returning a response to the content script", () => {
         const message = {
             data: { url: "http://example.com", rate: 5 },
         } // message.type is missing
