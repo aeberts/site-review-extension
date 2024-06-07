@@ -10,7 +10,6 @@ export function messageHandler(
         switch (message.type) {
             case "rating":
                 ratingMessageHandler(
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     message as Message<MessageRate>,
                     sendResponse,
                 )
