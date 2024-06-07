@@ -2,7 +2,7 @@ import { MessageRate } from "../../types/message.types"
 import { ratingMessageHandler } from "./onMessageHandlers/ratingMessageHandler"
 
 export function messageHandler(
-    message: Message,
+    message: Message<unknown>,
     sender: chrome.runtime.MessageSender,
     sendResponse: SendResponseCallback,
 ) {
@@ -11,7 +11,7 @@ export function messageHandler(
             case "rating":
                 ratingMessageHandler(
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    message as any as Message<MessageRate>,
+                    message as Message<MessageRate>,
                     sendResponse,
                 )
                 break
