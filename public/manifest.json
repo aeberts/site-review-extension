@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Review Sites",
-    "description": "Review Sites Extension to showcase testing in browser extensions",
+    "name": "Chrome Extension Template V3 (React, Vite, TS)",
+    "description": "A basic template for building Manifest V3 Chrome extensions using React, Vite, and TypeScript, preserving the original architecture.",
     "version": "1.0.0",
     "icons": {
         "16": "icons/logo-16.png",
