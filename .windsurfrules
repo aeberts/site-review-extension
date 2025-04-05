@@ -1,0 +1,67 @@
+Every time you choose to apply a rule(s), explicitly state the rule(s) in the response. You can abbreviate the rule description to a single word or short phrase.
+
+# High Level Project Goals
+- Modify this extension to provide a generic starting point for other chrome v3 extensions.
+- Maintain the application structure, architecture and testing approach.
+- The extensions default behavior is to record the number of visits to a site.
+- Create a new popup component that shows:
+- A list of the sites the user has visited and the number of visits to each site.
+- A button to clear the list of visits.
+- A toggle button to enable or disable the extension.
+- A button to open the options page.
+- A button to open a help page.
+- Use the Rating component as a model for the way a new component should be structured; the component should be self-contained, have its own state, and be testable.
+- The component should use messages to communicate with the background script.
+- The component should use message handlers like the ones in serviceWorker/events/onMessageHandlers/
+
+# Test Driven Development Workflow
+- Only work on one feature or component at a time.
+- Run tests with the command `bun run test`
+- Before creating a feature, first search the project to see if there are "end to end" tests already written for it.
+- If no tests has develop a test that reflects the desired functionality, anticipating its failure since the feature isn't implemented yet. 
+- Before building, run the type checker with `bun run check` to identify and resolve any type errors. Confirm that no type errors exist before moving forward and check in with the user before proceeding.
+- Write the simplest code necessary in TypeScript that will make the failing test pass.
+- Run the type checker with `bun run check` to make sure that there are no type errors.
+- Run the relevant test with `bun run test` until the test for this feature passes. Do not move forward with other features until all tests pass.
+- Refactor the current feature to make it better without changing the behavior of the code if necessary.
+- If the tests do not pass after 3 attempts to fix them stop and ask the user for directions.
+
+# References
+- [Chrome Extension API](https://developer.chrome.com/docs/extensions/reference/api/runtime)
+- [Jest](https://jestjs.io/)
+- [Jest Chrome](https://github.com/extend-chrome/jest-chrome)
+
+# General Code Style & Formatting
+- Use English for all code and documentation.
+- Always declare the type of each variable and function (parameters and return value).
+- Use functional and declarative code programming patterns; avoid classes where possible.
+- Use descriptive variable names with auxiliary verbs (e.g., `isLoading`, `hasError`).
+- Avoid using `any` where possible. If `any` is necessary add a comment explaining why it was necessary.
+- Create necessary types.
+- Use JSDoc to document public classes and methods.
+- Don't leave blank lines within a function.
+- One export per file.
+
+# Naming Conventions
+- Use PascalCase for classes.
+- Use camelCase for variables, functions, and methods.
+- Use kebab-case for file and directory names.
+- Use UPPERCASE for environment variables.
+- Avoid magic numbers and define constants.
+
+# Functions & Logic
+- Keep functions short and single-purpose (<20 lines).
+- Avoid deeply nested blocks by:
+- Using early returns.
+- Extracting logic into utility functions.
+- Use higher-order functions (map, filter, reduce) to simplify logic.
+- Use arrow functions for simple cases (<3 instructions), named functions otherwise.
+- Use default parameter values instead of null/undefined checks.
+- Use RO-RO (Receive Object, Return Object) for passing and returning multiple parameters.
+
+# Data Handling
+- Avoid excessive use of primitive types; encapsulate data in composite types.
+- Avoid placing validation inside functions—use classes with internal validation instead.
+- Prefer immutability for data:
+- Use readonly for immutable properties.
+- Use as const for literals that never change.
