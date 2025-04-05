@@ -3,10 +3,10 @@ import { type JestConfigWithTsJest } from "ts-jest"
 
 const config: JestConfigWithTsJest = {
     preset: "ts-jest",
-    testEnvironment: "jsdom",
+    testEnvironment: "jest-environment-jsdom",
     roots: ["<rootDir>/src"],
     automock: false,
-    setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+    setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
     testMatch: [
         "**/__tests__/**/*.[jt]s?(x)",
         "**/?(*.)+(spec|test).[jt]s?(x)",

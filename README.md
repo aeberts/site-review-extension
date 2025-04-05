@@ -1,33 +1,30 @@
-# Chrome Extension: Site Reviewer
+# Chrome Extension Template
+This is a starting point for developing v3 Chrome extensions using Vite, React, and TypeScript.
+The default behavior is to record the number of visits to a site but this is just to illustrate the basic structure of the extension.
 
-### Overview:
-
-The Site Reviewer Chrome Extension is a demonstration project designed to showcase testing strategies for Chrome extensions. It offers users the ability to rate and review websites directly within their Chrome browser. This extension aims to demonstrate best practices for testing Chrome extensions and highlights the importance of thorough testing in software development.
+Please note that this extension template is based on the [Site Review Extension](https://github.com/EduardoAC/site-review-extension/tree/master) but Eduardo AC.
+Many thanks to Eduardo AC for the original work and the great [blog post](https://medium.com/@byeduardoac/chrome-extensions-effective-unit-testing-with-jest-chrome-bc3edf3c171a) about developing and testing v3 Chrome extensions.
 
 ### Features:
 
-1. **Rating System:** Users can rate websites based on their experience, providing valuable insights to other users.
-2. **Review Submission:** Write and submit reviews for websites, sharing personal experiences and opinions.
-3. **Chrome Storage:** Reviews are stored locally in Chrome storage cache, ensuring data privacy and security.
-4. **Integration:** Seamlessly integrates with the Chrome browser, appearing as an unobtrusive extension icon.
-5. **Testing Strategies:** Demonstrates various testing strategies for Chrome extensions, including unit tests, integration tests, and end-to-end tests.
+1. **Popup:** A popup window that shows a list of the sites the user has visited and the number of visits to each site.
+2. **Chrome Storage:** Visits are stored locally in Chrome storage cache.
+3. **Testing Strategies:** Templates for unit tests, integration tests, and end-to-end tests as explained by Eduardo AC [here](https://medium.com/@byeduardoac/chrome-extensions-effective-unit-testing-with-jest-chrome-bc3edf3c171a).
 
 ### Get Started:
 
 1. **Clone Repository:** Clone the Site Reviewer repository from GitHub.
-2. **Install Dependencies:** Run `yarn install` to install the required dependencies.
-3. **Build Extension:** Run `yarn build` to build the extension.
-4. **Test Extension:** Run `yarn test` to execute tests and ensure the extension functions correctly.
+2. **Install Dependencies:** Run `bun install` to install the required dependencies.
+3. **Build Extension:** Run `bun run build` to build the extension.
+4. **Test Extension:** Run `bun run test` to execute tests and ensure the extension functions correctly.
 5. **Load Unpacked:** Open Chrome browser and go to `chrome://extensions/`.
 6. **Enable Developer Mode:** Toggle the Developer mode switch on the top right corner.
-7. **Load Extension:** Click on "Load unpacked" and select the `build` directory of the extension.
+7. **Load Extension:** Click on "Load unpacked" and select the build directory of the extension (default location is `dist`)
 8. **Ready to Use:** Once installed, the extension is ready to use, and the icon will appear in the browser toolbar.
 
 ### Usage:
 
-1. **Rating:** When visiting a website, click on the extension icon to rate and review the site.
-2. **Submission:** Submit your rating and review to contribute to the community feedback.
-3. **Chrome Storage:** Reviews are stored locally in Chrome storage cache, ensuring data privacy and security.
+TBD
 
 ### Testing Strategies:
 

@@ -27,4 +27,12 @@ export default defineConfig({
             sourcemap: true,
         },
     },
+    build: {
+        rollupOptions: {
+            input: {
+                popup: resolve(assetsDir, 'popup.html'),
+                // add other entry points here
+            },
+        },
+    },
 })
