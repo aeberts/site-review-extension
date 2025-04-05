@@ -4,15 +4,24 @@ Every time you choose to apply a rule(s), explicitly state the rule(s) in the re
 - Modify this extension to provide a generic starting point for other chrome v3 extensions.
 - Maintain the application structure, architecture and testing approach.
 - The extensions default behavior is to record the number of visits to a site.
+
+# Features
+
+## General Approach to Components
+- Use the `Rating` component `src/contentScript/components/Rating/Rating.tsx` as a model for the way a new component should communicate with the background script / service worker.
+- The component should be self-contained, have its own state, and be testable.
+- The component should use messages to communicate with the background script.
+- The component should use messages to communicate with the background script / service worker (see `src/serviceWorker/events/onMessageHandlers/` for examples).
+- The eventHandler `src/serviceWorker/events/eventHandler.ts` routes messages to the appropriate message handlers.
+- The component should use message handlers like the ones in serviceWorker/events/onMessageHandlers/
+
+## Popup Component
 - Create a new popup component that shows:
 - A list of the sites the user has visited and the number of visits to each site.
 - A button to clear the list of visits.
 - A toggle button to enable or disable the extension.
 - A button to open the options page.
 - A button to open a help page.
-- Use the Rating component as a model for the way a new component should be structured; the component should be self-contained, have its own state, and be testable.
-- The component should use messages to communicate with the background script.
-- The component should use message handlers like the ones in serviceWorker/events/onMessageHandlers/
 
 # Test Driven Development Workflow
 - Only work on one feature or component at a time.

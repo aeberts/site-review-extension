@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extension Popup</title>
+    <style>
+      /* Basic styling to prevent empty popup */
+      body {
+        width: 300px; /* Adjust width as needed */
+        min-height: 100px; /* Adjust height as needed */
+        margin: 0;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Entry point for the React app -->
+    <script type="module" src="/src/popup/popup.tsx"></script>
+  </body>
+</html>

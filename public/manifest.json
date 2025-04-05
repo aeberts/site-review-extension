@@ -10,6 +10,13 @@
     },
     "permissions": ["storage"],
     "host_permissions": ["<all_urls>"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/logo-16.png",
+            "48": "icons/logo-48.png"
+        }
+    },
     "background": {
         "service_worker": "./src/serviceWorker/serviceWorker.ts"
     },
