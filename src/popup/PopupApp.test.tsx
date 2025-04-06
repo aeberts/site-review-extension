@@ -1,6 +1,5 @@
-import { render, screen } from '@testing-library/react';
-// Ensure jest-dom matchers are available, typically via setupTests.ts
-// import '@testing-library/jest-dom'; 
+import React from 'react';import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'; 
 import PopupApp from './PopupApp';
 
 describe('PopupApp Component', () => {

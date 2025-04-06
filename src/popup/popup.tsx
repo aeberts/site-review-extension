@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import PopupApp from './PopupApp';
+import PopupApp from './PopupApp'
 // Consider adding a base CSS file for the popup if needed
 // import './popup.css';
 
