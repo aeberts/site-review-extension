@@ -1,7 +1,15 @@
-//import React from "react";
+// @ts-ignore: React is needed for JSX
+import React from "react";
 import { render, screen } from "@testing-library/react"
 import { JestChrome } from "jest-chrome/types/jest-chrome"
 import { Rating } from "./Rating"
+
+// Mock the Chrome API
+jest.mock('chrome', () => ({
+  runtime: {
+    sendMessage: jest.fn()
+  }
+}), { virtual: true });
 
 describe("<Rating /> integration with sendMessage", () => {
     let mockSendMessage: jest.Mock
