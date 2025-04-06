@@ -19,8 +19,7 @@ describe('PopupApp Component', () => {
     expect(screen.getByTestId('help-button')).toBeInTheDocument();
 
     // Check for specific placeholder text (optional, but good practice)
-    expect(screen.getByRole('button', { name: /clear visits/i })).toBeInTheDocument();
-
+    expect(screen.getByRole('button', { name: /clear ratings/i })).toBeInTheDocument();
   });
 
   // Add more tests here as functionality is developed

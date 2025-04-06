@@ -3,15 +3,16 @@ export interface MessageRate {
     rate?: number
 }
 
-export type MessageType = "rating" | "extension"
-export type MessageSubtype = "get" | "update" | "getState" | "setState" | "stateChanged"
-
 export interface MessageExtensionState {
     enabled?: boolean
+    clearRatings?: boolean
 }
+
+export type MessageType = "rating" | "extension"
+export type MessageSubType = "get" | "update" | "getState" | "setState" | "stateChanged" | "clearRatings"
 
 export interface Message<T> {
     type: MessageType
-    subType: MessageSubtype
+    subType: MessageSubType
     data: NonNullable<T>
 }

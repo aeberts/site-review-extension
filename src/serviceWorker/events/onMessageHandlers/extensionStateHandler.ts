@@ -1,5 +1,5 @@
 import { Message, MessageExtensionState } from "../../../types/message.types"
-import { getExtensionState, setExtensionState } from "../../storage/extensionState"
+import { clearAllRatings, getExtensionState, setExtensionState } from "../../storage/extensionState"
 
 /**
  * Handles messages related to the extension state (enabled/disabled)
@@ -39,6 +39,12 @@ export async function extensionStateHandler(
                 }
             })
             return { statusCode: 200, data: message.data.enabled }
+        }
+
+        if (message.subType === "clearRatings") {
+            console.log("Clearing all ratings")
+            await clearAllRatings()
+            return { statusCode: 200, data: true }
         }
 
         console.log("Invalid extension state message subType:", message.subType)
