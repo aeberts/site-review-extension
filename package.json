@@ -10,7 +10,7 @@
         "dev": "vite",
         "preview": "vite preview",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "test": "jest",
+        "test": "NODE_OPTIONS=--no-warnings jest",
         "e2e": "playwright test --headed"
     },
     "husky": {

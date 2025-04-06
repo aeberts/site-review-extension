@@ -1,4 +1,6 @@
 // createShadowRoot.test.ts
+// @ts-ignore: React is needed for JSX
+import React from "react";
 import { render } from "@testing-library/react"
 import { createShadowRoot } from "./shadow"
 
