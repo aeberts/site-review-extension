@@ -9,7 +9,7 @@ describe('PopupApp Component', () => {
     render(<PopupApp />);
 
     // Check for the main heading
-    expect(screen.getByRole('heading', { name: /extension popup/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /v3 extension template/i })).toBeInTheDocument();
 
     // Check for placeholder sections/buttons using data-testid
     expect(screen.getByTestId('visited-sites-list')).toBeInTheDocument();
@@ -19,7 +19,6 @@ describe('PopupApp Component', () => {
     expect(screen.getByTestId('help-button')).toBeInTheDocument();
 
     // Check for specific placeholder text (optional, but good practice)
-    expect(screen.getByText('(List will appear here)')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /clear visits/i })).toBeInTheDocument();
 
   });

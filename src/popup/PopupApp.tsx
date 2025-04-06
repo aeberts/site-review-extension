@@ -15,12 +15,11 @@ function PopupApp(): React.JSX.Element {
 
   return (
     <div className="popup-container" style={{ padding: '10px' }}>
-      <h1>Extension Popup</h1>
+      <h2>v3 Extension Template</h2>
 
       {/* Placeholder for Visited Sites List */}
       <div data-testid="visited-sites-list">
         <h2>Visited Sites</h2>
-        <p>(List will appear here)</p>
       </div>
 
       {/* Placeholder Buttons/Controls */}

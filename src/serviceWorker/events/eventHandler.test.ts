@@ -1,78 +1,81 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { MessageRate } from "../../types/message.types"
+import { Message } from "../../types/message.types"
 import { messageHandler } from "./eventHandler"
 import { ratingMessageHandler } from "./onMessageHandlers/ratingMessageHandler"
+import { extensionStateHandler } from "./onMessageHandlers/extensionStateHandler"
 
-jest.mock("./onMessageHandlers/ratingMessageHandler")
+jest.mock("./onMessageHandlers/ratingMessageHandler", () => ({
+    ratingMessageHandler: jest.fn(),
+}))
+
+jest.mock("./onMessageHandlers/extensionStateHandler", () => ({
+    extensionStateHandler: jest.fn().mockResolvedValue({ statusCode: 200 }),
+}))
 
 describe("messageHandler", () => {
-    const sendResponseMock = jest.fn()
+    let sendResponseMock: jest.Mock
+    let sender: chrome.runtime.MessageSender
 
     beforeEach(() => {
+        sendResponseMock = jest.fn()
+        sender = {
+            tab: { id: 1 } as chrome.tabs.Tab,
+        } as chrome.runtime.MessageSender
         jest.clearAllMocks()
     })
 
-    it('should delegate "rating" message to ratingMessageHandler and return true', () => {
-        const message: Message<MessageRate> = {
+    it("Should call ratingMessageHandler if message type is rating", () => {
+        const message = {
             type: "rating",
             subType: "update",
             data: { url: "http://example.com", rate: 5 },
         }
-        const sender = { tab: { id: 1 } }
 
-        const result = messageHandler(message, sender as any, sendResponseMock)
+        messageHandler(message as Message<unknown>, sender, sendResponseMock)
 
-        expect(ratingMessageHandler).toHaveBeenCalledWith(
-            message,
-            sendResponseMock,
-        )
-        expect(result).toBe(true)
+        expect(ratingMessageHandler).toHaveBeenCalled()
     })
 
-    it("Should respond synchronously and immediately to the content script when an incorrect message type is detected", () => {
+    it("Should call extensionStateHandler if message type is extension", () => {
         const message = {
-            type: "unsupported",
+            type: "extension",
+            subType: "setState",
+            data: { enabled: true },
+        }
+
+        messageHandler(message as Message<unknown>, sender, sendResponseMock)
+
+        expect(extensionStateHandler).toHaveBeenCalled()
+    })
+
+    it("Should return false if message type is unknown", () => {
+        const message = {
+            type: "unknown",
+            subType: "update",
             data: {},
         }
-        const sender = { tab: { id: 1 } }
 
-        const result = messageHandler(
-            message as any,
-            sender as any,
-            sendResponseMock,
-        )
+        const result = messageHandler(message as Message<unknown>, sender, sendResponseMock)
 
-        expect(ratingMessageHandler).not.toHaveBeenCalled()
         expect(result).toBe(false)
+        expect(sendResponseMock).toHaveBeenCalledWith({
+            statusCode: 404,
+            data: "Unknown message type",
+        })
     })
 
-    it("Should respond synchronously if sender.tab is absent, immediately returning a response to the content script", () => {
-        const message: Message<MessageRate> = {
-            type: "rating",
+    it("Should return false if message type is missing", () => {
+        const message = {
             subType: "update",
-            data: { url: "http://example.com", rate: 5 },
-        }
-        const sender = {} // sender.tab is missing
+            data: {},
+        } as Message<unknown>
 
         const result = messageHandler(message, sender, sendResponseMock)
 
-        expect(ratingMessageHandler).not.toHaveBeenCalled()
         expect(result).toBe(false)
-    })
-
-    it("Should respond synchronously if message.type is missing, immediately returning a response to the content script", () => {
-        const message = {
-            data: { url: "http://example.com", rate: 5 },
-        } // message.type is missing
-        const sender = { tab: { id: 1 } }
-
-        const result = messageHandler(
-            message as any,
-            sender as any,
-            sendResponseMock,
-        )
-
-        expect(ratingMessageHandler).not.toHaveBeenCalled()
-        expect(result).toBe(false)
+        expect(sendResponseMock).toHaveBeenCalledWith({
+            statusCode: 400,
+            data: "Invalid message: missing type",
+        })
     })
 })

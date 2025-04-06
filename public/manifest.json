@@ -28,7 +28,12 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["bundle.css", "logo.svg"],
+            "resources": [
+                "bundle.css", 
+                "logo.svg", 
+                "assets/*.js",
+                "assets/*.css"
+            ],
             "matches": ["<all_urls>"]
         }
     ]

@@ -3,7 +3,7 @@ Every time you choose to apply a rule(s), explicitly state the rule(s) in the re
 # High Level Project Goals
 - Modify this extension to provide a generic starting point for other chrome v3 extensions.
 - Maintain the application structure, architecture and testing approach.
-- The extensions default behavior is to record the number of visits to a site.
+- The extension's default behavior is to allow users to rate websites they visit and store the rating in Chrome storage.
 
 # Features
 
@@ -17,15 +17,15 @@ Every time you choose to apply a rule(s), explicitly state the rule(s) in the re
 
 ## Popup Component
 - Create a new popup component that shows:
-- A list of the sites the user has visited and the number of visits to each site.
-- A button to clear the list of visits.
-- A toggle button to enable or disable the extension.
-- A button to show and hide the content script panel.
+- A radio button to enable or disable the extension.
+- A button to clear the list of ratings
+- A button to show and hide the rating content script panel.
 - A button to open the options page.
 - A button to open a help page.
 
 ## contentScript Component
-- Show the number of times that the user has visited the current site.
+- Rating System: Users can rate websites based on their experience, providing valuable insights to other users.
+- Chrome Storage: Reviews are stored locally in Chrome storage cache, ensuring data privacy and security.
 
 # Test Driven Development Workflow
 - Only work on one feature or component at a time.

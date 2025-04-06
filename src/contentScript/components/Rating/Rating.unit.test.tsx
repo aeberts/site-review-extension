@@ -1,3 +1,5 @@
+// @ts-ignore: React is needed for JSX
+import React from "react"
 import { render, screen } from "@testing-library/react"
 import { Rating } from "./Rating"
 

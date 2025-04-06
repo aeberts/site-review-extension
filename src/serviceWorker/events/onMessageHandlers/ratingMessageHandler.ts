@@ -1,6 +1,8 @@
-import { MessageRate } from "../../../types/message.types"
+import { Message, MessageRate } from "../../../types/message.types"
 import { getRateFromCache } from "./getRateFromCache"
 import { updateCacheRating } from "./updateCacheRating"
+
+type SendResponseCallback = (response?: any) => void
 
 export async function ratingMessageHandler(
     message: Message<MessageRate>,

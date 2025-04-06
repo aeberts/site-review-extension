@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { JestChrome } from "jest-chrome/types/jest-chrome"
 import { ratingMessageHandler } from "./ratingMessageHandler"
-import { MessageRate } from "../../../types/message.types"
+import { Message, MessageRate } from "../../../types/message.types"
 
 describe("ratingMessageHandler", () => {
     const sendResponseMock = jest.fn()

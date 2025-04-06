@@ -1,3 +1,10 @@
+import { Message } from "../../types/message.types"
+
+interface MessageResponse<T> {
+    statusCode: number
+    data?: T
+}
+
 export async function sendMessage<T, V>(message: Message<T>) {
     return new Promise<V | undefined>((resolve, reject) => {
         try {
