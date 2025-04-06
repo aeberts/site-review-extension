@@ -1,3 +1,4 @@
+//import React from "react";
 import { render, screen } from "@testing-library/react"
 import { JestChrome } from "jest-chrome/types/jest-chrome"
 import { Rating } from "./Rating"

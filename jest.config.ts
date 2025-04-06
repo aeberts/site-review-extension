@@ -12,7 +12,14 @@ const config: JestConfigWithTsJest = {
         "**/?(*.)+(spec|test).[jt]s?(x)",
     ],
     transform: {
-        "^.+\\.tsx?$": "ts-jest",
+        "^.+\\.tsx?$": [
+            "ts-jest",
+            {
+                tsconfig: {
+                    jsx: "react-jsx", // Explicitly tell ts-jest to use the modern JSX transform
+                },
+            },
+        ],
         // process `*.tsx` files with `ts-jest`
     },
     moduleNameMapper: {
