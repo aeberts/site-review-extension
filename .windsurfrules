@@ -20,8 +20,12 @@ Every time you choose to apply a rule(s), explicitly state the rule(s) in the re
 - A list of the sites the user has visited and the number of visits to each site.
 - A button to clear the list of visits.
 - A toggle button to enable or disable the extension.
+- A button to show and hide the content script panel.
 - A button to open the options page.
 - A button to open a help page.
+
+## contentScript Component
+- Show the number of times that the user has visited the current site.
 
 # Test Driven Development Workflow
 - Only work on one feature or component at a time.
